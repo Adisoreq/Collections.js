@@ -19,12 +19,12 @@ class Queue {
     }
 
     // Getters
-    length() {
-        return this.#_Items.length;
-    }
-
     peek() {
         return this.#_Items.length > 0 ? this.#_Items[0] : undefined;
+    }
+    
+    get length() {
+        return this.#_Items.length;
     }
 
     values() {
@@ -35,7 +35,7 @@ class Queue {
         return this.#_Items.includes(object);
     }
 
-    isEmpty() {
+    get isEmpty() {
         return this.#_Items.length === 0;
     }
 }
