@@ -119,6 +119,12 @@ flowchart TB
 - **`isOrphan(node)`** - returns `true` if node isn't connected to anything
 - **`length()`** - returns number of elements
 
+## Roadmap
+1. BitMaps
+2. Priority Queue
+3. Directed Graph
+4. Binary Tree
+
 ## Installation
 
 No NPM / CDN yet 😥
