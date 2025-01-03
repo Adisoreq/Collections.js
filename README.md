@@ -1,2 +1,2 @@
 # Collections.js
-JavaScript library to implement additional data structures / collections
+JavaScript library implementing C# collections and data structures
