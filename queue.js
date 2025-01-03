@@ -1,7 +1,7 @@
 class Queue {
     // Variables
     #_Items = [];
-    
+
     // Constructor
     constructor() {}
 
@@ -14,7 +14,15 @@ class Queue {
         return this.#_Items.length > 0 ? this.#_Items.shift() : undefined;
     }
 
+    clear() {
+        this.#_Items = [];
+    }
+
     // Getters
+    length() {
+        return this.#_Items.length;
+    }
+
     peek() {
         return this.#_Items.length > 0 ? this.#_Items[0] : undefined;
     }
@@ -25,10 +33,6 @@ class Queue {
 
     contains(object) {
         return this.#_Items.includes(object);
-    }
-
-    length() {
-        return this.#_Items.length;
     }
 
     isEmpty() {
