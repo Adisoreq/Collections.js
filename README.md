@@ -126,3 +126,7 @@ No NPM / CDN yet 😥
 ## License
 
 [![GitHub license](https://badgen.net/github/license/Naereen/Strapdown.js)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
+
+## Copyright
+
+Copyright © 2025 Adrian P. (Adisoreq)
