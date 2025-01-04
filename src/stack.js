@@ -39,4 +39,9 @@ class Stack {
     get isEmpty() {
         return this.#_Items.length === 0;
     }
+
+    // Display
+    display() {
+        console.log(`Stack (${this.#_Items.length}) {\n ${this.#_Items.join(', ')}\n}`);
+    }
 }

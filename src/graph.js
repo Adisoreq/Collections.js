@@ -28,9 +28,12 @@ class Graph {
 
     addNodes(nodes = [], connected = false) {
         for (let i = 0; i < nodes.length; i++) {
-            for (let j = 0; j < nodes.length; j++) {
-                if (i !== j && connected) {
-                    this.addEdge(nodes[i], nodes[j]);
+            this.addNode(nodes[i]); // Added 'this.'
+            if (connected) {
+                for (let j = 0; j < nodes.length; j++) {
+                    if (i !== j) {
+                        this.addEdge(nodes[i], nodes[j]);
+                    }
                 }
             }
         }
@@ -97,5 +100,15 @@ class Graph {
             }
         }
         return undefined;
+    }
+
+    // Display
+    display() {
+        let output = '';
+        for (let key of this.#_Items.keys()) {
+            let symbol = (this.isOrphan(key) ? '' : '=>')
+            output += (`\n ${key} ${symbol} ${[...this.#_Items.get(key)].join(', ')}`);
+        }
+        console.log(`Graph (${this.#_Items.size}) {${output}\n}`);
     }
 }

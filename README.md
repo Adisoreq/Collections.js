@@ -25,6 +25,7 @@ Q -- third out --> Z[/C/] -- second out --> Y[/B/] -- first out --> X[/A/]
 - **`values()`** - returns shallow copy of the queue content
 
 ### Example:
+
 ```javascript
 const q = new Queue()
 const str = "Hello world!";
@@ -120,15 +121,72 @@ flowchart TB
 - **`isOrphan(node)`** - returns `true` if node isn't connected to anything
 - **`length()`** - returns number of elements
 
+### Example:
+
+```javascript
+var g = new Graph();
+
+// Single node
+g.addNode(1)
+
+// Multiple nodes
+g.addNodes([2, 3, 6])
+
+// Directional (one-sided) edge
+g.addEdge(1, 2)
+
+// Undirectional (two-sided) edge
+g.addEdge(3, 6, true)
+
+// Multiple nodes connected with each other (clique)
+g.addNodes([8, 9, 10], true)
+
+// Display graph
+g.display();
+
+// Display groups
+console.log(g.findConnectedComponents())
+```
+
+## BitArray
+
+Bit array is a compact, space-efficient data structure for storing binary data. Allows to compress 8 boolean values into 1 byte.
+
+| Byte |     0 |     1  |       2 |   ... |
+-------------------------------------------
+| Bits | 0 - 7 | 8 - 15 | 16 - 23 | 24... |
+
+For example, bool array will store 10 boolean values on 10 bytes (80 bits), while bit array will store them on 2 bytes (16 bits: 10 used, 6 unused).
+
+### Methods:
+- **`clear()`** - resets the bit array to initial state (`false (0)` on all bits)
+- **`display()`** - prints the bit array to the console
+- **`get(index)`** - returns the value of the bit at the specified index (`false (0)` or `true (1)`)
+- **`isEmpty()`** - returns `true` if array stores no bits
+- **`length()`** - returns the number of stored bits
+- **`reset(index)`** - resets the bit at the `index` to `false (0)`
+- **`set(index)`** sets the bit at the `index` to `true (1)`
+- **`setBit(index, value)`** - sets the bit at the index to the specified value (`true (1)` / `false (0)`)
+- **`values()`** - returns a shallow copy of stored values array
+
+### Example:
+
+```javascript
+
+const bitArray = new BitArray(5); // 5 bits stored on 1 byte
+bitArray.set(3);
+bitArray.set(4);
+bitArray.set(5);
+bitArray.reset(3);
+bitArray.display();
+
+console.log(bitArray.get(5)); // true (1)
+console.log(bitArray.get(3)); // false (0)
+```
+
 ## Roadmap
-1. BitMaps
-2. Priority Queue
-3. Directed Graph
-4. Binary Tree
-
-## Installation
-
-No NPM / CDN yet 😥
+1. Priority Queue
+2. Binary Tree
 
 ## License
 

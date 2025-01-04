@@ -38,4 +38,9 @@ class Queue {
     get isEmpty() {
         return this.#_Items.length === 0;
     }
+
+    // Display
+    display() {
+        console.log(`Queue (${this.#_Items.length}) {\n ${this.#_Items.join(', ')}\n}`);
+    }
 }
