@@ -108,6 +108,7 @@ flowchart TB
 ```
 
 ### Methods:
+- **`addEdge(A, B, mutual)`** - adds a connection from A to B (directed), and vice versa if `mutual` is `true` (undirected)
 - **`addNode(node)`** - adds orphan node to the graph
 - **`addNodes(nodes, connected)`** - adds multiple nodes to the graph, and connects them with each other, if `connected` is set to `true`
 - **`clear()`** - erases all nodes and vertices

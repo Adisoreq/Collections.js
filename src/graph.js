@@ -6,16 +6,18 @@ class Graph {
     constructor() {}
 
     // Methods
-    #addEdge(nodeA, nodeB) {
+    addEdge(nodeA, nodeB, mutual = false) {
         if (!this.#_Items.has(nodeA)) {
             this.#_Items.set(nodeA, new Set());
         }
         this.#_Items.get(nodeA).add(nodeB);
 
-        if (!this.#_Items.has(nodeB)) {
-            this.#_Items.set(nodeB, new Set());
+        if (mutual) {
+            if (!this.#_Items.has(nodeB)) {
+                this.#_Items.set(nodeB, new Set());
+            }
+            this.#_Items.get(nodeB).add(nodeA); 
         }
-        this.#_Items.get(nodeB).add(nodeA);  // Dla grafu nieskierowanego
     }
 
     addNode(node) {
@@ -24,11 +26,11 @@ class Graph {
         }
     }
 
-    addNodes(nodes = []) {
+    addNodes(nodes = [], connected = false) {
         for (let i = 0; i < nodes.length; i++) {
             for (let j = 0; j < nodes.length; j++) {
-                if (i !== j) {
-                    this.#addEdge(nodes[i], nodes[j]);
+                if (i !== j && connected) {
+                    this.addEdge(nodes[i], nodes[j]);
                 }
             }
         }
@@ -63,8 +65,6 @@ class Graph {
         return this.#_Items.has(nodeA) && this.#_Items.get(nodeA).has(nodeB);
     }
 
-    // Nowe metody dotyczące grup
-
     #dfs(node, visited, component) {
         visited.add(node);
         component.push(node);
@@ -96,6 +96,6 @@ class Graph {
                 return component;
             }
         }
-        return undefined;  // Węzeł nie istnieje w grafie
+        return undefined;
     }
 }
