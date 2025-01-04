@@ -153,6 +153,7 @@ console.log(g.findConnectedComponents())
 Bit array is a compact, space-efficient data structure for storing binary data. Allows to compress 8 boolean values into 1 byte.
 
 | Byte |     0 |     1  |       2 |   ... |
+|------|-------|--------|---------|-------|
 | Bits | 0 - 7 | 8 - 15 | 16 - 23 | 24... |
 
 For example, bool array will store 10 boolean values on 10 bytes (80 bits), while bit array will store them on 2 bytes (16 bits: 10 used, 6 unused).
