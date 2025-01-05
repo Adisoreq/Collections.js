@@ -12,16 +12,20 @@ class Stack {
     }
 
     clear() {
-        this.#_Items = [];
+        this.#_Items.clear();
     }
 
     // Getters
-    get peek() {
-        return this.#_Items[this.#_Items.length - 1];
-    }
-
     get length() {
         return this.#_Items.length;
+    }
+
+    get isEmpty() {
+        return this.#_Items.length === 0;
+    }
+
+    get peek() {
+        return this.#_Items[this.#_Items.length - 1];
     }
 
     get lastIndex() {
@@ -34,10 +38,6 @@ class Stack {
 
     contains(object) {
         return this.#_Items.includes(object);
-    }
-
-    get isEmpty() {
-        return this.#_Items.length === 0;
     }
 
     // Display

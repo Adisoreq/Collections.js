@@ -39,6 +39,10 @@ class Tree {
             this.add(child, parent);
         }
     }
+
+    clear() {
+        this.#_Items.clear();
+    }
     
     // Getters
     get length() {
@@ -48,8 +52,8 @@ class Tree {
     get isEmpty() {
         return this.#_Items.size === 0;
     }
-    
-    has(object) {
+
+    contains(object) {
         return this.#_Items.has(object);
     }
     
