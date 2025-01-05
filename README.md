@@ -277,6 +277,8 @@ Tree degree determines the max number of children for every branch. The most com
 - **`length()`** - returns the number of elements (including root)
 - **`printType()`** - returns a string value informing about tree's type or degree
 - **`values()`** - returns a shallow copy of the tree's content
+> [!IMPORTANT]  
+> Always create root element with **addRoot()** function, before adding more nodes
 
 ### Example:
 
@@ -286,7 +288,7 @@ Tree degree determines the max number of children for every branch. The most com
 
 const famliyTree = new Tree(2)
 
-// It's important to add the root element first
+// Add the root element first
 familyTree.addRoot('me')
 // Adding a single node
 familyTree.add('mother', 'me')
