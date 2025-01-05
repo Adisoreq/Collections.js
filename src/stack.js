@@ -28,10 +28,6 @@ class Stack {
         return this.#_Items[this.#_Items.length - 1];
     }
 
-    get lastIndex() {
-        return this.#_Items.length - 1;
-    }
-
     values() {
         return [...this.#_Items];
     }

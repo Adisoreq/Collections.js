@@ -31,7 +31,6 @@ classDiagram
       push()
       pop()
       peek()
-      lastIndex()
     }
     class Graph{
       addEdge()
@@ -149,7 +148,6 @@ Q -- third out --> Z[/A/] -- second out --> Y[/B/] -- first out --> X[/C/]
 - **`clear()`** - erases all elements
 - **`contains(object)`** - returns `true` if object exists in the stack
 - **`isEmpty()`** - returns `true` if there are no elements in the stack
-- **`lastIndex`** - returns index of the element on top
 - **`length()`** - returns number of elements
 - **`peek()`** - returns the element on top
 - **`pop()`** - removes the element on top of the stack and returns it
