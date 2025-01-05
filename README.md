@@ -54,6 +54,9 @@ classDiagram
     }
 ```
 
+> [!NOTE]
+> Skipped structures: Array, Map (Dictionary), Set
+
 ----
 ## BitArray
 
