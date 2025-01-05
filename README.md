@@ -182,20 +182,18 @@ console.log(output)
 Graph is a mathematical structure based on unique elements (nodes / vertices) and connections between them (edges). Groups of vertices connected by edges (groups / components) may assemble into paths, trees or cliques.
 
 ```mermaid
-flowchart TB
+flowchart TD
     subgraph three [Clique]
-    C1((C1)) <--> C2((C2)) <--> C3((C3)) <--> C4((C4))
-    C4 <--> C1
-    C1 <--> C3
-    C2 <--> C4
+    C1((C1)) & C2((C2)) <--> C3((C3)) & C4((C4))
     end
     subgraph two [Tree]
-    B1((B1)) <--> B2((B2))
+    B0((B0)) <--> B1((B1))
+    B1 <--> B2((B2))
     B1 <--> B3((B3))
     B1 <--> B4((B4))
     end
     subgraph one [Path]
-    A1((A1)) <--> A2((A2)) <--> A3((A3)) <--> A4((A4))
+    A1((A1)) <--> A2((A2)) <--> A3((A3))
     end
 
 ```
@@ -242,7 +240,7 @@ console.log(g.findConnectedComponents())
 
 ## Tree
 
-Tree is a hierarchical structure basing on parent-child relations. Similar to graph, but limits the child-per-parent amount and disables creating loops. Nodes with children are called **branches**, and child-less nodes are called **leaves**. Every tree has one root branch.
+Tree is a hierarchical structure basing on parent-child relations. Similar to the directional graph, but with restricts parents to have limited child amount, and children to have only one parent. Also, child node cannot be parent to its superior node, creating a loop. Nodes with children are called **branches**, and child-less nodes are called **leaves**. Every tree has one root branch.
 
 ```mermaid
 flowchart TD
