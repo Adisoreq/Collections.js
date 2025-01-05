@@ -70,9 +70,9 @@ class Tree {
     
     printType() {
         switch (this.degree) {
-            case 1: return 'Unitary';
             case 2: return 'Binary';
             case 3: return 'Ternary';
+            case 4: return 'Quaternary';
             default: return `${this.degree}. degree`;
         }
     }
