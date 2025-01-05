@@ -1,5 +1,5 @@
 # Collections.js
-JavaScript library implementing C# collections and data structures
+JavaScript library that extends native data structures with additional classes, including implemented C# collections.
 
 ```mermaid
 classDiagram
@@ -55,7 +55,7 @@ classDiagram
 ```
 
 > [!NOTE]
-> Skipped structures: Array, Map (Dictionary), Set
+> Skipped structures: Array, List, Map (Dictionary), Set
 
 ----
 ## BitArray
@@ -277,8 +277,6 @@ Tree degree determines the max number of children for every branch. The most com
 - **`length()`** - returns the number of elements (including root)
 - **`printType()`** - returns a string value informing about tree's type or degree
 - **`values()`** - returns a shallow copy of the tree's content
-> [!IMPORTANT]  
-> Always create root element with **addRoot()** function, before adding more nodes
 
 ### Example:
 
@@ -311,6 +309,8 @@ positions.addChildren({x: 30, y: -10}, [{x: 25, y: -20}, {x: 30, y: -20}, {x: 35
 
 positions.display()
 ```
+> [!IMPORTANT]  
+> Always create root element with **addRoot()** function, before adding more nodes
 ----
 
 ## Roadmap
