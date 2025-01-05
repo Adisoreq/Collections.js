@@ -184,9 +184,79 @@ console.log(bitArray.get(5)); // true (1)
 console.log(bitArray.get(3)); // false (0)
 ```
 
+## Tree
+
+Tree is a hierarchical structure basing on parent-child relations. Similar to graph, but limits the child-per-parent amount and disables creating loops. Nodes with children are called **branches**, and child-less nodes are called **leaves**. Every tree has one root branch.
+
+```mermaid
+flowchart TD
+    R((Root Element)) --> A((Child A))
+    R --> B((Child B))
+    A --> A1((A1))
+    A --> A2((A2))
+    B --> B1((B1))
+    B --> B2((B2))
+```
+
+### Tree degree:
+
+Tree degree determines the max number of children for every branch. The most common tree types are:
+- **Binary Tree** - degree of **2** (every node can have up to 2 children)
+- **Ternary Tree** - degree of **3** (every node can have up to 3 children)
+- **Quaternary Tree(QuadTree)** - degree of **4** (every node can have up to 4 children)
+
+### Variables:
+- **`degree`** - degree of the tree
+- **`root`** - root element of the tree (initially `null`)
+
+### Methods:
+- **`add(element, parent)`** - adds an element connected to it's parent to the tree
+- **`addChildren(parent, [children])`** - adds multiple children connected to the specified parent
+- **`addRoot(root)`** - adds root element, significant to add more elements
+- **`display()`** - displays the tree's content
+- **`getChildren(node)`** - returns array of node's children
+- **`has(element)`** - returns `true` if element is part of the tree
+- **`hasChildren(node)`** - returns `true`, if node has at least 1 child
+- **`isEmpty()`** - returns `true` if there are no nodes in the tree
+- **`length()`** - returns the number of elements (including root)
+- **`printType()`** - returns a string value informing about tree's type or degree
+- **`values()`** - returns a shallow copy of the tree's content
+
+### Example:
+
+```javascript
+
+// Binary tree
+
+const famliyTree = new Tree(2)
+
+// It's important to add the root element first
+familyTree.addRoot('me')
+// Adding a single node
+familyTree.add('mother', 'me')
+familyTree.add('father', 'me')
+// Adding multiple nodes
+familyTree.add('mother', ['grandmother A', 'grandfather A'])
+familyTree.add('father', ['grandmother B', 'grandfather B'])
+
+familyTree.display()
+
+// Ternary tree
+
+const positions = new Tree(3)
+
+positions.addRoot({x: 0, y: 0})
+positions.addChildren(positions.root, [{x: -30, y: -10}, {x: 0, y: -10}, {x: 30, y: -10}])
+positions.addChildren({x: -30, y: -10}, [{x: -35, y: -20}, {x: -30, y: -20}, {x: -25, y: -20}])
+positions.addChildren({x: 0, y: -10}, [{x: -5, y: -20}, {x: 0, y: -20}, {x: 5, y: -20}])
+positions.addChildren({x: 30, y: -10}, [{x: 25, y: -20}, {x: 30, y: -20}, {x: 35, y: -20}])
+
+positions.display()
+```
+
 ## Roadmap
 1. Priority Queue
-2. Binary Tree
+2. Sorted arrays
 
 ## License
 
