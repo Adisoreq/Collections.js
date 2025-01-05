@@ -1,6 +1,97 @@
 # Collections.js
 JavaScript library implementing C# collections and data structures
 
+```mermaid
+classDiagram
+    Collection <|-- BitArray
+    Collection <|-- Queue
+    Collection <|-- Stack
+    Collection <|-- Graph
+    Collection <|-- Tree
+    Collection: #_Items
+    Collection: isEmpty()
+    Collection: length()
+    Collection: values()
+    Collection: contains()
+    Collection: clear()
+    Collection: display()
+    class BitArray{
+      #_Size
+      setBit()
+      set()
+      reset()
+      get()
+    }
+    class Queue{
+      enqueue()
+      dequeue()
+      peek()
+    }
+    class Stack{
+      push()
+      pop()
+      peek()
+      lastIndex()
+    }
+    class Graph{
+      addEdge()
+      addNode()
+      addNodes()
+      getEdges()
+      isOrphan()
+      isConnected()
+      findConnectedComponents()
+      getComponent()
+    }
+    class Tree{
+      degree
+      root
+      addRoot()
+      add()
+      addChildren()
+      hasChildren()
+      getChildren()
+      printType()
+    }
+```
+
+----
+## BitArray
+
+Bit array is a compact, space-efficient data structure for storing binary data. Allows to compress 8 boolean values into 1 byte.
+
+| Byte |     0 |     1  |       2 |   ... |
+|------|-------|--------|---------|-------|
+| Bits | 0 - 7 | 8 - 15 | 16 - 23 | 24... |
+
+For example, bool array will store 10 boolean values on 10 bytes (80 bits), while bit array will store them on 2 bytes (16 bits: 10 used, 6 unused).
+
+### Methods:
+- **`clear()`** - resets the bit array to initial state (`false (0)` on all bits)
+- **`display()`** - prints the bit array to the console
+- **`get(index)`** - returns the value of the bit at the specified index (`false (0)` or `true (1)`)
+- **`isEmpty()`** - returns `true` if array stores no bits
+- **`length()`** - returns the number of stored bits
+- **`reset(index)`** - resets the bit at the `index` to `false (0)`
+- **`set(index)`** sets the bit at the `index` to `true (1)`
+- **`setBit(index, value)`** - sets the bit at the index to the specified value (`true (1)` / `false (0)`)
+- **`values()`** - returns a shallow copy of stored values array
+
+### Example:
+
+```javascript
+
+const bitArray = new BitArray(5); // 5 bits stored on 1 byte
+bitArray.set(3);
+bitArray.set(4);
+bitArray.set(5);
+bitArray.reset(3);
+bitArray.display();
+
+console.log(bitArray.get(5)); // true (1)
+console.log(bitArray.get(3)); // false (0)
+```
+
 ## Queue
 Queue is a **FIFO** (**F**irst **I**n - **F**irst **O**ut) data structure, focusing on it's oldest element.
 
@@ -148,42 +239,6 @@ g.display();
 console.log(g.findConnectedComponents())
 ```
 
-## BitArray
-
-Bit array is a compact, space-efficient data structure for storing binary data. Allows to compress 8 boolean values into 1 byte.
-
-| Byte |     0 |     1  |       2 |   ... |
-|------|-------|--------|---------|-------|
-| Bits | 0 - 7 | 8 - 15 | 16 - 23 | 24... |
-
-For example, bool array will store 10 boolean values on 10 bytes (80 bits), while bit array will store them on 2 bytes (16 bits: 10 used, 6 unused).
-
-### Methods:
-- **`clear()`** - resets the bit array to initial state (`false (0)` on all bits)
-- **`display()`** - prints the bit array to the console
-- **`get(index)`** - returns the value of the bit at the specified index (`false (0)` or `true (1)`)
-- **`isEmpty()`** - returns `true` if array stores no bits
-- **`length()`** - returns the number of stored bits
-- **`reset(index)`** - resets the bit at the `index` to `false (0)`
-- **`set(index)`** sets the bit at the `index` to `true (1)`
-- **`setBit(index, value)`** - sets the bit at the index to the specified value (`true (1)` / `false (0)`)
-- **`values()`** - returns a shallow copy of stored values array
-
-### Example:
-
-```javascript
-
-const bitArray = new BitArray(5); // 5 bits stored on 1 byte
-bitArray.set(3);
-bitArray.set(4);
-bitArray.set(5);
-bitArray.reset(3);
-bitArray.display();
-
-console.log(bitArray.get(5)); // true (1)
-console.log(bitArray.get(3)); // false (0)
-```
-
 ## Tree
 
 Tree is a hierarchical structure basing on parent-child relations. Similar to graph, but limits the child-per-parent amount and disables creating loops. Nodes with children are called **branches**, and child-less nodes are called **leaves**. Every tree has one root branch.
@@ -253,6 +308,7 @@ positions.addChildren({x: 30, y: -10}, [{x: 25, y: -20}, {x: 30, y: -20}, {x: 35
 
 positions.display()
 ```
+----
 
 ## Roadmap
 1. Priority Queue
